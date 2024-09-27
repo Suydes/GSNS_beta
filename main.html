@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pixel Animation</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #000;
+        position: relative;
+    }
+
+    .pixel {
+        position: absolute;
+        width: 10px; /* Можно задать случайный размер в пределах 10-30px */
+        height: 10px; /* Можно задать случайный размер в пределах 10-30px */
+        background-color: #335; /* Темный цвет пикселя */
+        animation: pixelAnimation linear 5s infinite;
+    }
+
+    @keyframes pixelAnimation {
+        0% {
+            transform: translateY(100vh) rotate(0deg);
+            opacity: 50;
+        }
+        100% {
+            transform: translateY(-10vh) rotate(360deg);
+            opacity: -10;
+        }
+    }
+</style>
+</head>
+<body>
+<script>
+    // Функция для создания пикселей и добавления их на страницу
+    function createPixels() {
+        const numPixels = 70; // Количество пикселей
+        const container = document.body;
+
+        for (let i = 0; i < numPixels; i++) {
+            const pixel = document.createElement('div');
+            pixel.classList.add('pixel');
+
+            // Установка случайных размеров и позиций
+            const size = Math.floor(Math.random() * 10) + 7; // Размер от 10 до 30
+            const x = Math.random() * window.innerWidth;
+            const delay = Math.random() * 5; // Задержка анимации
+
+            pixel.style.width = size + 'px';
+            pixel.style.height = size + 'px';
+            pixel.style.left = x + 'px';
+            pixel.style.animationDelay = delay + 's';
+
+            container.appendChild(pixel);
+        }
+    }
+
+    createPixels();
+</script>
+</body>
+</html>
