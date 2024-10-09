@@ -18,7 +18,6 @@ header{
   height: 300px;
   background-color: #3498db;
   text-align: center;
-  position: relative;
   position: fixed;
   top: 0;
   overflow: hidden;
@@ -44,10 +43,10 @@ header{
       padding: 10px 15px;
       line-height: 1;
       text-decoration: none;
-       @include border-radius(2px);
-        &:hover{
-          @include box-shadow(0 0 0 1px #fff);
-        }
+      @include border-radius(2px);
+      &:hover{
+        @include box-shadow(0 0 0 1px #fff);
+      }
     }
   }
 }
